@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header />
+    <Header v-if="isLogin" />
     <router-view />
   </v-app>
 </template>
@@ -11,7 +11,9 @@ export default {
   components: {
     Header,
   },
-  data: () => ({}),
+  data: () => ({
+    isLogin: false,
+  }),
 };
 </script>
 <style lang="scss">

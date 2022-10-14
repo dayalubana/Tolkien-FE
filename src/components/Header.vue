@@ -28,8 +28,8 @@
 
       <v-spacer></v-spacer>
       <v-toolbar-title class="mr-10 list-style cursor--pointer">
-        <router-link tag="li" class-active="active" to="/login"
-          >Login</router-link
+        <router-link tag="li" class-active="active" to="/logout"
+          >Logout</router-link
         >
       </v-toolbar-title>
       <v-avatar color="primary" size="45">AY</v-avatar>

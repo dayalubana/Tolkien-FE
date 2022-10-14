@@ -13,6 +13,10 @@ const routes = [
     component: () => import("../views/Login.vue"),
   },
   {
+    path: "/verifyOtp",
+    component: () => import("../views/VerifyOTP.vue"),
+  },
+  {
     path: "/dashboard",
     component: () => import("../views/Dashboard.vue"),
   },

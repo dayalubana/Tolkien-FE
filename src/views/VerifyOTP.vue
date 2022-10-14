@@ -2,44 +2,28 @@
   <v-card max-width="95%" class="card--css">
     <img src="../assets/logo.png" alt="" class="logo--css" />
     <div class="d--flex">
+      <div class="my_bg"></div>
       <div class="vertical--align">
         <v-form ref="form" style="width: 26%">
-          <h1 class="title text--center">Sign in to Tolkien</h1>
+          <h1 class="title text--center">Verify OTP</h1>
           <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-            required
-            outlined
-          ></v-text-field>
-          <v-text-field
-            v-model="password"
-            type="password"
-            label="Password"
+            v-model="otp"
+            type="number"
+            label="OTP"
             required
             outlined
           ></v-text-field>
           <div class="text--center">
-            <v-btn class="btn--color" color="#3aada3" rounded> SIGN IN </v-btn>
+            <v-btn
+              class="btn--color"
+              color="#3aada3"
+              rounded
+              @click="verifyOTP"
+            >
+              Verify OTP
+            </v-btn>
           </div>
         </v-form>
-      </div>
-      <div class="my_bg vertical--align">
-        <div>
-          <h1>Hello, Friend!</h1>
-          <div class="margin--text">
-            Enter your personal details and start journey with us
-          </div>
-          <v-btn
-            class="btn--color"
-            outlined
-            color="#ffff"
-            rounded
-            @click="$router.push('/')"
-          >
-            SIGN UP
-          </v-btn>
-        </div>
       </div>
     </div>
   </v-card>
@@ -48,15 +32,18 @@
 <script>
 export default {
   data: () => ({
-    password: "",
-    email: "",
-    emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-    ],
+    otp: null,
+    text: "Your registration is successfully completed. Please login!",
+    snackbar: false,
+    timeout: 3000,
   }),
 
-  methods: {},
+  methods: {
+    verifyOTP() {
+      console.log("otp", this.otp);
+      this.$router.push("/login");
+    },
+  },
 };
 </script>
 
